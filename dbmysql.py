@@ -4,14 +4,15 @@ from urllib import parse
 
 
 class Mysql():
-    def __init__(self):
-        self.conn = pymysql.connect(host='localhost', port=3306, user='root',password='123123',database='taoqueqiao',use_unicode=True, charset="utf8")
+    def __init__(self, dbname):
+        self.conn = pymysql.connect(host='localhost', port=3306, user='root',password='123123',database=dbname,use_unicode=True, charset="utf8")
+        self.dbname = dbname
 
     def re_connect(self):
     	try:
             self.conn.ping()
     	except:
-            self.conn = pymysql.connect(host='localhost', port=3306, user='root',password='123123',database='taoqueqiao',use_unicode=True, charset="utf8")
+            self.conn = pymysql.connect(host='localhost', port=3306, user='root',password='123123',database=self.dbname,use_unicode=True, charset="utf8")
 
     def query(self,sqlstr):
         self.re_connect()

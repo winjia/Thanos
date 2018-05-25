@@ -29,7 +29,7 @@ class Application(tornado.web.Application):
 
 def main():
     http_server = tornado.httpserver.HTTPServer(Application())
-    http_server.listen(8081)
+    http_server.listen(80)
     #
     #wx_shedule = WxShedule()
     #wx_shedule.excute()

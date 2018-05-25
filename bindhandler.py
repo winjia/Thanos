@@ -1,10 +1,12 @@
+import tornado.web
+import time
+from dbmysql import Mysql
 
-class BindHandler():
-    def __init__(self):
-        pass
+
+class BindHandler(tornado.web.RequestHandler):
 
     def get(self):
-        pass
+        self.render("bind_page.html")
 
     
     def post(self):
@@ -14,3 +16,6 @@ class BindHandler():
             self.write("error")
         if len(phone)==0:
             self.write("error")
+        handle = Mysql("sass")
+        sqlstr = "INSERT INTO wechat_bind_info (wechatid,companyname,cellphone,createtime,updatetime) VALUES ('aaaaa','%s','%s',%d,%d)"%(name,phone,time.time(),time.time())
+        handle.insert(sqlstr)

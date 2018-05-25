@@ -1,6 +1,8 @@
 import tornado.web
 import random
 import json
+import time
+from dbmysql import Mysql
 
 seed = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -67,9 +69,9 @@ class MenuHandler(tornado.web.RequestHandler):
         button1.append((menu11name,menu11type,menu11value))
         button1.append((menu12name,menu12type,menu12value))
         button1.append((menu13name,menu13type,menu13value))
-        print(button1)
+        #print(button1)
         btn1 = self.get_button_info(button1)
-        print(btn1)
+        #print(btn1)
         
         #
         button2 = []
@@ -90,7 +92,7 @@ class MenuHandler(tornado.web.RequestHandler):
         button2.append((menu22name,menu22type,menu22value))
         button2.append((menu23name,menu23type,menu23value))
         btn2 = self.get_button_info(button2)
-        print(btn2)
+        #print(btn2)
         #
         button3 = []
         menu3name = self.get_argument("menu3")
@@ -110,7 +112,7 @@ class MenuHandler(tornado.web.RequestHandler):
         button3.append((menu32name,menu32type,menu32value))
         button3.append((menu33name,menu33type,menu33value))
         btn3 = self.get_button_info(button3)
-        print(btn3)
+        #print(btn3)
         btnlist = []
         if btn1 is not None:
             btnlist.append(btn1)
@@ -119,9 +121,13 @@ class MenuHandler(tornado.web.RequestHandler):
         if btn3 is not None:
             btnlist.append(btn3)
         menu = {"button":btnlist}
-        print(json.dumps(menu))
+        menustr = json.dumps(menu)
+        #print(json.dumps(menu))
+        handle = Mysql("sass")
+        sqlstr = "INSERT INTO wechat_menu (appid,appsecret,menujson,createtime,updatetime) VALUES ('%s','%s','%s',%d,%d)"%(appid, appsecret, menustr,time.time(), time.time())
+        handle.insert(sqlstr)
     
         
-
+        
 
 
