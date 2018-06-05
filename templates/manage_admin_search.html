@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用户管理</title>
+<link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="#" class="list-group-item active">机构管理</a>
+            <a href="#" class="list-group-item">机构增加</a>
+            <a href="#" class="list-group-item">商标信息</a>
+            <a href="#" class="list-group-item">专利信息</a>
+        </div>
+        <div class="col-md-10">
+            <ul class="nav nav-table">
+                <li class="active">
+                    机构管理
+                </li>
+            </ul>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>机构名</th>
+                        <th>增加时间</th>
+                        <th>修改</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>xxxxx</td>
+                        <td>xxxxx</td>
+                        <td>xxxxx</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <form method="post" action="/menu">
+    <div>
+        <p>用户名:<input type="text" name="username"></p>
+        <p>密  码:<input type="text" name="passwd"></p>
+    </div>
+    <p><input type="submit" value="新建用户" name="btn">
+    <input type="submit" value="删除用户" name="btn">
+    <input type="submit" value="重设用户" name="btn"></p>
+    </form>
+</div>
+<div>
+pass
+</div>
+</body>
+</html>

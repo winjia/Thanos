@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用户管理</title>
+<link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}" />
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script language="JavaScript" src={{ static_url("js/bootstrap.min.js") }}></script>
+</head>
+<body>
+<nav class="navbar">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" 
+data-toggle="collapse"
+data-target=".navbar-responsive-collapse">
+<span class="sr-only">Toggle navigtion</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="#" class="navbar-brand">机构后台</a>
+</div>
+</div>
+
+</nav>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="#" class="list-group-item active">商标信息</a>
+            <a href="#" class="list-group-item">专利信息</a>
+        </div>
+        <div class="col-md-10">
+            <ul class="nav nav-table">
+                <li class="active">
+                    商标信息
+                </li>
+            </ul>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>机构名</th>
+                        <th>用户名</th>
+                        <th>修改</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for elem in userdata %}
+                    <tr>
+                        <th scope="row">{{ elem["idx"] }}</th>
+                        <td>{{ elem["orgname"] }}</td>
+                        <td>{{ elem["username"] }}</td>
+                        <td>xxxxx</td>
+                    </tr>
+                    {% end %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
